@@ -27,6 +27,8 @@ $(call inherit-product, vendor/liquid/config/common_gsm.mk)
 # phone
 $(call inherit-product, vendor/liquid/config/common_phone.mk)
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.dexopt-data-only=1
 
 # products
 PRODUCT_DEVICE := mako
