@@ -42,7 +42,7 @@ PRODUCT_PACKAGES += \
         VisualizationWallpapers \
         librs_jni
 
-LOCAL_KERNEL := device/lge/mako-kernel/kernel
+LOCAL_KERNEL := device/lge/mako
 
 PRODUCT_COPY_FILES := \
 	$(LOCAL_KERNEL):kernel
@@ -140,7 +140,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.audio.handset.mic=dmic \
 	persist.audio.fluence.mode=endfire \
-	persist.audio.lowlatency.rec=false \
+	persist.audio.lowlatency.rec=true \
 	af.resampler.quality=4
 
 
