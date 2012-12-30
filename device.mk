@@ -138,7 +138,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	persist.audio.lowlatency.rec=false \
 	af.resampler.quality=4
 
-
 # Do not power down SIM card when modem is sent to Low Power Mode.
 PRODUCT_PROPERTY_OVERRIDES += \
 	persist.radio.apm_sim_not_pwdn=1
@@ -226,11 +225,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	telephony.lteOnCdmaDevice=0
 
 PRODUCT_PROPERTY_OVERRIDES += \
-	drm.service.enabled=true
-
-PRODUCT_PROPERTY_OVERRIDES += \
 	wifi.interface=wlan0 \
-	wifi.supplicant_scan_interval=15
+	wifi.supplicant_scan_interval=180
 
 # Enable AAC 5.1 output
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -251,4 +247,11 @@ PRODUCT_COPY_FILES += \
 	system/extras/bugmailer/bugmailer.sh:system/bin/bugmailer.sh \
 	system/extras/bugmailer/send_bug:system/bin/send_bug
 
-$(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
+PRODUCT_PROPERTY_OVERRIDES += \
+	dalvik.vm.heapsize=512m \
+	dalvik.vm.heapmaxfree=8m \
+    dalvik.vm.heapminfree=512k \
+    dalvik.vm.heapstartsize=32m \
+    dalvik.vm.heapgrowthlimit=256m \
+    dalvik.vm.heaputilization=0.75
+
