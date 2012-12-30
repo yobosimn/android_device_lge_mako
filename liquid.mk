@@ -27,9 +27,6 @@ $(call inherit-product, vendor/liquid/config/common_gsm.mk)
 # phone
 $(call inherit-product, vendor/liquid/config/common_phone.mk)
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.dexopt-data-only=1
-
 # products
 PRODUCT_DEVICE := mako
 PRODUCT_BRAND := Google
@@ -44,6 +41,8 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=occam \
     TARGET_BUILD_TYPE=user \
     BUILD_VERSION_TAGS=release-keys \
-    PRIVATE_BUILD_DESC="occam-user 4.2 J0P40C 527662 release-keys" \
-    BUILD_FINGERPRINT="google/occam/mako:4.2/J0P20C/527662:user/release-keys"
+    PRIVATE_BUILD_DESC="occam-user 4.2 JOP40C 527662 release-keys" \
+    BUILD_FINGERPRINT="google/occam/mako:4.2/JOP40C/527662:user/release-keys"
 
+# Enable Torch
+PRODUCT_PACKAGES += Torch
