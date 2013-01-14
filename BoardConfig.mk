@@ -35,6 +35,7 @@ BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01600000
 
 # Try to build the kernel
 TARGET_KERNEL_CONFIG := mako_defconfig
+TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.6/bin/arm-eabi-
 
 BOARD_USES_ALSA_AUDIO:= true
 BOARD_USES_FLUENCE_INCALL := true
