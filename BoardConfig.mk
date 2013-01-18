@@ -22,8 +22,6 @@ TARGET_CPU_SMP := true
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 ARCH_ARM_HAVE_TLS_REGISTER := true
-TARGET_GCC_VERSION := 4.6
-TARGET_USE_O2 := true
 
 # Compiler Optimization
 ARCH_ARM_HIGH_OPTIMIZATION := true
