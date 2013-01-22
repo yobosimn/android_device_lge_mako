@@ -1,5 +1,6 @@
 #
-# Copyright (C) 2011 The Android Open-Source Project
+# Copyright (C) 2012 The CyanogenMod Project
+# Copyright (C) 2012 The LiquidSmooth Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,33 +15,17 @@
 # limitations under the License.
 #
 
-# This file includes all definitions that apply to ALL mako devices, and
-# are also specific to mako devices
-#
-# Everything in this directory will become public
-
 DEVICE_PACKAGE_OVERLAYS := device/lge/mako/overlay
 
-# This device is xhdpi.  However the platform doesn't
-# currently contain all of the bitmaps at xhdpi density so
-# we do this little trick to fall back to the hdpi version
-# if the xhdpi doesn't exist.
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 PRODUCT_PACKAGES := \
-	lights.mako
+    lights.mako
 
 PRODUCT_PACKAGES += \
     charger_res_images \
     charger
-
-# Live Wallpapers
-PRODUCT_PACKAGES += \
-        LiveWallpapers \
-        LiveWallpapersPicker \
-        VisualizationWallpapers \
-        librs_jni
 
 PRODUCT_COPY_FILES += \
 	device/lge/mako/WCNSS_cfg.dat:system/vendor/firmware/wlan/prima/WCNSS_cfg.dat \
@@ -127,6 +112,10 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.opengles.version=131072
+
+# Required For Boot DO NOT DELETE!
+PRODUCT_PROPERTY_OVERRIDES += \
+	dalvik.vm.dexopt-data-only=1
 
 PRODUCT_PROPERTY_OVERRIDES += \
 	ro.sf.lcd_density=320
@@ -225,6 +214,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	telephony.lteOnCdmaDevice=0
 
 PRODUCT_PROPERTY_OVERRIDES += \
+	drm.service.enabled=true
+
+PRODUCT_PROPERTY_OVERRIDES += \
 	wifi.interface=wlan0 \
 	wifi.supplicant_scan_interval=180
 
@@ -241,21 +233,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 	persist.sys.usb.config=mtp
 
-# Charging LED property
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.enable-charging-led=0
-
-# for bugmailer
-PRODUCT_PACKAGES += send_bug
-PRODUCT_COPY_FILES += \
-	system/extras/bugmailer/bugmailer.sh:system/bin/bugmailer.sh \
-	system/extras/bugmailer/send_bug:system/bin/send_bug
-
 PRODUCT_PROPERTY_OVERRIDES += \
 	dalvik.vm.heapsize=512m \
 	dalvik.vm.heapmaxfree=8m \
-    dalvik.vm.heapminfree=512k \
-    dalvik.vm.heapstartsize=32m \
-    dalvik.vm.heapgrowthlimit=256m \
-    dalvik.vm.heaputilization=0.75
-
+        dalvik.vm.heapminfree=512k \
+        dalvik.vm.heapstartsize=32m \
+        dalvik.vm.heapgrowthlimit=256m \
+        dalvik.vm.heaputilization=0.75
