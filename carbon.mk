@@ -1,6 +1,6 @@
 #
 # Copyright (C) 2012 The CyanogenMod Project
-# Copyright (C) 2012 The LiquidSmooth Project
+# Copyright (C) 2012 The Carbon Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -22,21 +22,21 @@ PRODUCT_RELEASE_NAME := N4
 $(call inherit-product-if-exists, device/lge/mako/full_mako.mk)
 
 # gsm
-$(call inherit-product, vendor/liquid/config/common_gsm.mk)
+$(call inherit-product, vendor/carbon/config/common_gsm.mk)
 
 # languages
 PRODUCT_LOCALES := cs_CZ da_DK de_AT de_CH de_DE de_LI el_GR en_AU en_CA en_GB en_NZ en_SG en_US es_ES fr_CA fr_CH fr_BE fr_FR it_CH it_IT ja_JP ka_GE ko_KR nb_NO nl_BE nl_NL nn_NO pl_PL pt_PT ru_RU sv_SE tr_TR zh_CN zh_HK zh_TW am_ET hi_IN
 
 # phone
-$(call inherit-product, vendor/liquid/config/common_phone.mk)
+$(call inherit-product, vendor/carbon/config/common_phone.mk)
 
 # products
 PRODUCT_DEVICE := mako
 PRODUCT_BRAND := Google
-PRODUCT_NAME := liquid_mako
+PRODUCT_NAME := carbon_mako
 PRODUCT_MODEL := Nexus 4
 PRODUCT_MANUFACTURER := LGE
-PRODUCT_PROPERTY_OVERRIDES += ro.buildzipid=liquid.mako.$(shell date +%m%d%y).$(shell date +%H%M%S)
+PRODUCT_PROPERTY_OVERRIDES += ro.buildzipid=carbon.mako.$(shell date +%m%d%y).$(shell date +%H%M%S)
 
 # overrides
 PRODUCT_BUILD_PROP_OVERRIDES += \
