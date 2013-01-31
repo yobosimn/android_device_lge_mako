@@ -18,7 +18,7 @@
 # Inherit from the common Open Source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 
-PRODUCT_NAME := liquid_mako
+PRODUCT_NAME := carbon_mako
 PRODUCT_DEVICE := mako
 PRODUCT_BRAND := Android
 PRODUCT_MODEL := Nexus 4
