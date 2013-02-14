@@ -16,7 +16,7 @@
 #
 
 #Tune for cortex-a9
-TARGET_EXTRA_CFLAGS := -mtune=cortex-a9 -mcpu=cortex-a15
+TARGET_EXTRA_CFLAGS := -mtune=cortex-a9 -mcpu=cortex-a9
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
