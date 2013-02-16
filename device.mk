@@ -240,3 +240,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
         dalvik.vm.heapstartsize=32m \
         dalvik.vm.heapgrowthlimit=256m \
         dalvik.vm.heaputilization=0.75
+
+# This is the mako-specific audio package
+$(call inherit-product, frameworks/base/data/sounds/AudioPackage10.mk)
