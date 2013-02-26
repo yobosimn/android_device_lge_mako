@@ -44,5 +44,5 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=occam \
     TARGET_BUILD_TYPE=user \
     BUILD_VERSION_TAGS=release-keys \
-    PRIVATE_BUILD_DESC="occam-user 4.2 JOP40C 527662 release-keys" \
-    BUILD_FINGERPRINT="google/occam/mako:4.2/JOP40C/527662:user/release-keys"
+    PRIVATE_BUILD_DESC="occam-user 4.2.2 JDQ39 573038 release-keys" \
+    BUILD_FINGERPRINT="google/occam/mako:4.2.2/JDQ39/573038:user/release-keys"
