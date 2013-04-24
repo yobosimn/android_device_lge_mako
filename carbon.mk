@@ -18,6 +18,9 @@
 # name
 PRODUCT_RELEASE_NAME := N4
 
+# OVERLAY_TARGET adds overlay asset source
+OVERLAY_TARGET := pa_xhdpi
+
 # device
 $(call inherit-product-if-exists, device/lge/mako/full_mako.mk)
 
