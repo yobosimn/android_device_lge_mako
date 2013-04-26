@@ -15,17 +15,13 @@
 # limitations under the License.
 #
 
-#Tune for cortex-a9
-TARGET_EXTRA_CFLAGS := -mtune=cortex-a9 -mcpu=cortex-a9
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_ARCH_VARIANT_CPU := cortex-a9
 ARCH_ARM_HAVE_TLS_REGISTER := true
-
-# Compiler Optimization
-ARCH_ARM_HIGH_OPTIMIZATION := true
 
 TARGET_NO_BOOTLOADER := true
 BOARD_KERNEL_BASE := 0x80200000
