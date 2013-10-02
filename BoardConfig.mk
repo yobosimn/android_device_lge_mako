@@ -40,8 +40,10 @@ BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=mako lpj=
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01600000
 
 # Try to build the kernel
-TARGET_KERNEL_SOURCE := kernel/google/msm
-TARGET_KERNEL_CONFIG := cyanogen_mako_defconfig
+TARGET_KERNEL_CONFIG := mako_defconfig
+
+# Use JWR66Y kernel compatibility fix
+TARGET_USE_JWR66Y := true
 
 BOARD_USES_ALSA_AUDIO:= true
 BOARD_USES_LEGACY_ALSA_AUDIO:= false
@@ -111,13 +113,6 @@ BOARD_CHARGER_ENABLE_SUSPEND := true
 
 BOARD_HAVE_LOW_LATENCY_AUDIO := true
 USE_DEVICE_SPECIFIC_CAMERA := true
-
-BOARD_USES_QCOM_HARDWARE := true
-TARGET_USES_QCOM_BSP := true
-COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DQCOM_BSP
-TARGET_QCOM_DISPLAY_VARIANT := caf
-TARGET_QCOM_MEDIA_VARIANT := caf
-TARGET_DISPLAY_USE_RETIRE_FENCE := true
 
 -include vendor/lge/mako/BoardConfigVendor.mk
 
