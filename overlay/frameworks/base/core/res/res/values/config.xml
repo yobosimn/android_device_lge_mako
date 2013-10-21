@@ -274,4 +274,6 @@
          it is disabled by default so devices need to add an overlay to enable-->
     <string name="config_fastChargePath" translatable="false">/sys/kernel/fast_charge/force_fast_charge</string>
 
+    <!-- Device supports LED flashlight -->
+    <bool name="config_enableTorch">true</bool>
 </resources>
