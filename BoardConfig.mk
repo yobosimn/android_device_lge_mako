@@ -36,7 +36,7 @@ TARGET_NO_BOOTLOADER := true
 
 BOARD_KERNEL_BASE := 0x80200000
 BOARD_KERNEL_PAGESIZE := 2048
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=mako lpj=67677
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=mako lpj=67677 user_debug=31
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01600000
 
 # Try to build the kernel
@@ -61,6 +61,9 @@ TARGET_BOOTLOADER_NAME=mako
 TARGET_BOARD_INFO_FILE := device/lge/mako/board-info.txt
 
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/mako/bluetooth
+
+# Use the CM PowerHAL
+TARGET_USES_CM_POWERHAL := true
 
 # FIXME: HOSTAPD-derived wifi driver
 BOARD_HAS_QCOM_WLAN := true
@@ -101,7 +104,7 @@ BOARD_USES_SECURE_SERVICES := true
 BOARD_USES_EXTRA_THERMAL_SENSOR := true
 BOARD_USES_CAMERA_FAST_AUTOFOCUS := true
 
-BOARD_LIB_DUMPSTATE := libdumpstate.mako
+BOARD_HAL_STATIC_LIBRARIES := libdumpstate.mako
 
 BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := $(TARGET_BOARD_PLATFORM)
 TARGET_NO_RPC := true
@@ -109,7 +112,38 @@ TARGET_PROVIDES_GPS_LOC_API := true
 
 TARGET_RELEASETOOLS_EXTENSIONS := device/lge/mako
 
+BOARD_SEPOLICY_DIRS := \
+       device/lge/mako/sepolicy
+
+BOARD_SEPOLICY_UNION := \
+       app.te \
+       bluetooth.te \
+       device.te \
+       domain.te \
+       drmserver.te \
+       file.te \
+       file_contexts \
+       hci_init.te \
+       init_shell.te \
+       keystore.te \
+       mediaserver.te \
+       kickstart.te \
+       nfc.te \
+       rild.te \
+       surfaceflinger.te \
+       system.te \
+       ueventd.te \
+       wpa.te
+
+
 BOARD_CHARGER_ENABLE_SUSPEND := true
+
+USE_DEVICE_SPECIFIC_CAMERA:= true
+USE_DEVICE_SPECIFIC_QCOM_PROPRIETARY:= true
+
+OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
+
+HAVE_ADRENO_SOURCE:= false
 
 BOARD_HAVE_LOW_LATENCY_AUDIO := true
 USE_DEVICE_SPECIFIC_CAMERA := true
@@ -117,38 +151,5 @@ USE_DEVICE_SPECIFIC_CAMERA := true
 -include vendor/lge/mako/BoardConfigVendor.mk
 
 BOARD_HAS_NO_SELECT_BUTTON := true
-
-BOARD_SEPOLICY_DIRS += \
-        device/lge/mako/sepolicy
-
-BOARD_SEPOLICY_UNION += \
-	file_contexts \
-	property_contexts \
-	te_macros \
-	bluetooth_loader.te \
-	bridge.te \
-	camera.te \
-	conn_init.te \
-	device.te \
-	dhcp.te \
-	domain.te \
-	drmserver.te \
-	file.te \
-	kickstart.te \
-	init.te \
-	mediaserver.te \
-	mpdecision.te \
-	netmgrd.te \
-	property.te \
-	qmux.te \
-	rild.te \
-	rmt.te \
-	sensors.te \
-	surfaceflinger.te \
-	system.te \
-	tee.te \
-	thermald.te \
-	ueventd.te \
-	wpa_supplicant.te
 
 BOARD_HARDWARE_CLASS := device/lge/mako/cmhw/

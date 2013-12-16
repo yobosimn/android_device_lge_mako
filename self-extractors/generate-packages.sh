@@ -18,12 +18,36 @@
 # 569806 = JDQ36B
 # 573038 = JDQ39
 # end jb-mr1.1-dev
-BRANCH=jb-mr1.1-dev
+# start jb-mr2-dev
+# 686185 = JWR53
+# 689345 = JWR58
+# 690834 = JWR59
+# 692263 = JWR60
+# 695489 = JWR64
+# 699533 = JWR66
+# 701448 = JWR66C
+# 704243 = JWR66G
+# 709441 = JWR66M
+# 711294 = JWR66N
+# 736095 = JWR66U
+# 737497 = JWR66V
+# end jb-mr2-dev
+BRANCH=klp-dev
 if test $BRANCH = jb-mr1.1-dev
 then
-  ZIP=occam-ota-573038.zip
+  ZIP=occam-ota-573038
   BUILD=jdq39
 fi # jb-mr1.1-dev
+if test $BRANCH = jb-mr2-dev
+then
+  ZIP=occam-ota-737497
+  BUILD=jwr66v
+fi # jb-mr2-dev
+if test $BRANCH = klp-dev
+then
+  ZIP=occam-ota-882570
+  BUILD=882570
+fi # klp-dev
 ROOTDEVICE=mako
 DEVICE=mako
 MANUFACTURER=lge
@@ -44,16 +68,10 @@ do
     ;;
   lge)
     TO_EXTRACT="\
-            system/etc/DxHDCP.cfg \
+            system/lib/libacdbdata.so \
             system/lib/libAKM.so \
-            system/lib/libDxHdcp.so \
             system/lib/libcamera_fast_af.so \
             system/lib/libmorpho_noise_reduction.so \
-            system/vendor/firmware/discretix/dxhdcp2.b00 \
-            system/vendor/firmware/discretix/dxhdcp2.b01 \
-            system/vendor/firmware/discretix/dxhdcp2.b02 \
-            system/vendor/firmware/discretix/dxhdcp2.b03 \
-            system/vendor/firmware/discretix/dxhdcp2.mdt \
             system/vendor/firmware/keymaster/keymaster.b00 \
             system/vendor/firmware/keymaster/keymaster.b01 \
             system/vendor/firmware/keymaster/keymaster.b02 \
@@ -72,7 +90,6 @@ do
             system/bin/efsks \
             system/bin/hci_qcomm_init \
             system/bin/ks \
-            system/bin/mm-audio-send-cal \
             system/bin/mm-qcamera-daemon \
             system/bin/mpdecision \
             system/bin/netmgrd \
@@ -88,45 +105,34 @@ do
             system/bin/usbhub \
             system/bin/usbhub_init \
             system/bin/v4l2-qcamera-app \
-            system/etc/diag.cfg \
-            system/etc/firmware/a225_pfp.fw \
-            system/etc/firmware/a225_pm4.fw \
-            system/etc/firmware/a225p5_pm4.fw \
-            system/etc/firmware/a300_pfp.fw \
-            system/etc/firmware/a300_pm4.fw \
-            system/etc/firmware/leia_pfp_470.fw \
-            system/etc/firmware/leia_pm4_470.fw \
+            system/etc/firmware/tzapps.b00 \
+            system/etc/firmware/tzapps.b01 \
+            system/etc/firmware/tzapps.b02 \
+            system/etc/firmware/tzapps.b03 \
+            system/etc/firmware/tzapps.mdt \
+            system/etc/firmware/vidc_1080p.fw \
             system/etc/firmware/vidc.b00 \
             system/etc/firmware/vidc.b01 \
             system/etc/firmware/vidc.b02 \
             system/etc/firmware/vidc.b03 \
             system/etc/firmware/vidc.mdt \
-            system/etc/firmware/vidc_1080p.fw \
-            system/etc/firmware/vidcfw.elf \
             system/lib/egl/eglsubAndroid.so \
-            system/lib/egl/libEGL_adreno200.so \
-            system/lib/egl/libGLESv1_CM_adreno200.so \
-            system/lib/egl/libGLESv2S3D_adreno200.so \
-            system/lib/egl/libGLESv2_adreno200.so \
-            system/lib/egl/libplayback_adreno200.so \
-            system/lib/egl/libq3dtools_adreno200.so \
+            system/lib/egl/libEGL_adreno.so \
+            system/lib/egl/libGLESv1_CM_adreno.so \
+            system/lib/egl/libGLESv2_adreno.so \
+            system/lib/egl/libplayback_adreno.so \
+            system/lib/egl/libq3dtools_adreno.so \
+            system/lib/hw/flp.msm8960.so \
+            system/lib/hw/gps.msm8960.so \
             system/lib/hw/sensors.msm8960.so \
-            system/lib/libC2D2.so \
-            system/lib/libCommandSvc.so \
-            system/lib/libI420colorconvert.so \
-            system/lib/libOmxAacDec.so \
-            system/lib/libOmxWmaDec.so \
-            system/lib/libOpenCL.so \
-            system/lib/libOpenVG.so \
-            system/lib/libQSEEComAPI.so \
-            system/lib/lib_dlb_msd.so \
             system/lib/libacdbloader.so \
-            system/lib/libalsautils.so \
+            system/lib/libadreno_utils.so \
             system/lib/libaudcal.so \
             system/lib/libaudioalsa.so \
-            system/lib/libaudioparsers.so \
-            system/lib/libc2d2_a3xx.so \
-            system/lib/libc2d2_z180.so \
+            system/lib/libC2D2.so \
+            system/lib/libc2d30-a3xx.so \
+            system/lib/libc2d30.so \
+            system/lib/libCB.so \
             system/lib/libchromatix_imx111_default_video.so \
             system/lib/libchromatix_imx111_preview.so \
             system/lib/libchromatix_imx111_zsl.so \
@@ -146,6 +152,7 @@ do
             system/lib/libchromatix_s5k4e1_preview.so \
             system/lib/libchromatix_vx6953_default_video.so \
             system/lib/libchromatix_vx6953_preview.so \
+            system/lib/libCommandSvc.so \
             system/lib/libconfigdb.so \
             system/lib/libcsd-client.so \
             system/lib/libdiag.so \
@@ -158,34 +165,36 @@ do
             system/lib/libdsucsd.so \
             system/lib/libdsutils.so \
             system/lib/libgemini.so \
+            system/lib/libgps.utils.so \
             system/lib/libgsl.so \
+            system/lib/libI420colorconvert.so \
             system/lib/libidl.so \
             system/lib/libimage-jpeg-dec-omx-comp.so \
             system/lib/libimage-jpeg-enc-omx-comp.so \
             system/lib/libimage-omx-common.so \
             system/lib/libllvm-a3xx.so \
-            system/lib/libllvm-arm.so \
-            system/lib/libloc_api_v02.so \
+            system/lib/libloc_core.so \
+            system/lib/libloc_eng.so \
             system/lib/libmercury.so \
-            system/lib/libmm-color-convertor.so \
             system/lib/libmmcamera_faceproc.so \
             system/lib/libmmcamera_frameproc.so \
             system/lib/libmmcamera_hdr_lib.so \
             system/lib/libmmcamera_image_stab.so \
             system/lib/libmmcamera_statsproc31.so \
             system/lib/libmmcamera_wavelet_lib.so \
+            system/lib/libmm-color-convertor.so \
             system/lib/libmmipl.so \
             system/lib/libmmjpeg.so \
             system/lib/libmmjps.so \
-            system/lib/libmmmpo.so \
             system/lib/libmmmpod.so \
+            system/lib/libmmmpo.so \
             system/lib/libmmstillomx.so \
             system/lib/libnetmgr.so \
             system/lib/liboemcamera.so \
+            system/lib/liboemcrypto.so \
             system/lib/libqcci_legacy.so \
             system/lib/libqdi.so \
             system/lib/libqdp.so \
-            system/lib/libqmi.so \
             system/lib/libqmi_cci.so \
             system/lib/libqmi_client_qmux.so \
             system/lib/libqmi_common_so.so \
@@ -193,16 +202,46 @@ do
             system/lib/libqmi_csvt_srvc.so \
             system/lib/libqmi_encdec.so \
             system/lib/libqmiservices.so \
+            system/lib/libqmi.so \
+            system/lib/libQSEEComAPI.so \
             system/lib/libril-qc-qmi-1.so \
             system/lib/libril-qcril-hook-oem.so \
-            system/lib/libsc-a2xx.so \
+            system/lib/librs_adreno_sha1.so \
+            system/lib/librs_adreno.so \
+            system/lib/libRSDriver_adreno.so \
             system/lib/libsc-a3xx.so \
             system/lib/libsensor1.so \
             system/lib/libsensor_reg.so \
             system/lib/libsensor_user_cal.so \
             system/lib/libstagefright_hdcp.so \
             system/lib/libxml.so \
+            system/vendor/firmware/a300_pfp.fw \
+            system/vendor/firmware/a300_pm4.fw \
+            system/vendor/firmware/dsps.b00 \
+            system/vendor/firmware/dsps.b01 \
+            system/vendor/firmware/dsps.b02 \
+            system/vendor/firmware/dsps.b03 \
+            system/vendor/firmware/dsps.b04 \
+            system/vendor/firmware/dsps.b05 \
+            system/vendor/firmware/dsps.mdt \
+            system/vendor/firmware/q6.b00 \
+            system/vendor/firmware/q6.b01 \
+            system/vendor/firmware/q6.b03 \
+            system/vendor/firmware/q6.b04 \
+            system/vendor/firmware/q6.b05 \
+            system/vendor/firmware/q6.b06 \
+            system/vendor/firmware/q6.mdt \
+            system/vendor/firmware/wcnss.b00 \
+            system/vendor/firmware/wcnss.b01 \
+            system/vendor/firmware/wcnss.b02 \
+            system/vendor/firmware/wcnss.b04 \
+            system/vendor/firmware/wcnss.b05 \
+            system/vendor/firmware/wcnss.mdt \
             system/vendor/lib/libdrmdecrypt.so \
+            system/vendor/lib/libgeofence.so \
+            system/vendor/lib/libizat_core.so \
+            system/vendor/lib/libloc_api_v02.so \
+            system/vendor/lib/libloc_ds_api.so \
             "
     ;;
   esac
