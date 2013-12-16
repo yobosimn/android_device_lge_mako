@@ -1,0 +1,10 @@
+[
+ {
+   "repository": "CarbonDev/android_kernel_lge_mako",
+   "target_path": "kernel/lge/mako"
+ },
+ {
+   "repository": "CarbonDev/proprietary_vendor_lge",
+   "target_path": "vendor/lge"
+ }
+]
