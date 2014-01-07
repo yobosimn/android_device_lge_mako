@@ -20,6 +20,8 @@ PRODUCT_RELEASE_NAME := N4
 
 # boot animation resolution
 TARGET_BOOTANIMATION_NAME := 720
+TARGET_SCREEN_HEIGHT := 1280
+TARGET_SCREEN_WIDTH := 720
 
 # device
 $(call inherit-product-if-exists, device/lge/mako/full_mako.mk)
